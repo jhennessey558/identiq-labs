@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================
+   BASE
+   ========================= */
+@layer base {
+  :root {
+    --bg-primary: #0a0a0c;
+    --surface: #111114;
+    --border: rgba(255,255,255,0.08);
+
+    --brand: #7c3aed;
+    --accent: #22d3ee;
+
+    --text-primary: #f9fafb;
+    --text-muted: #9ca3af;
+  }
+
+  body {
+    @apply antialiased;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+
+/* =========================
+   COMPONENTS
+   ========================= */
+@layer components {
+  .grid-background {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+
+  .gradient-text-primary {
+    color: white;
+  }
+
+  .nav-glass {
+    @apply bg-black/40 border-b border-white/5;
+  }
+
+  .card-surface {
+    @apply bg-[var(--surface)]
+      border border-[var(--border)]
+      rounded-xl
+      shadow-xl shadow-black/40;
+  }
+
+  .principle-card {
+    @apply card-surface p-6 flex gap-4;
+  }
+
+  .metric-card {
+    @apply card-surface p-6 text-center;
+  }
+
+  .metric-value {
+    @apply text-2xl font-semibold;
+  }
+
+  .metric-label {
+    @apply text-xs uppercase tracking-wider text-gray-500;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 rounded-md
+      bg-white text-black
+      font-semibold
+      hover:bg-gray-200
+      transition;
+  }
+
+  .input-primary {
+    @apply px-5 py-3 rounded-md
+      bg-black border border-white/10
+      text-white placeholder-gray-500
+      focus:outline-none focus:border-white/30;
+  }
+
+  .section-spacing {
+    @apply py-28;
+  }
+}

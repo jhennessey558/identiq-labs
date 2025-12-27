@@ -1,0 +1,338 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================
+   IDENTIQ UNIFIED STYLES
+   Premium Tech Aesthetic
+   ========================= */
+
+@layer base {
+  :root {
+    /* Core Colors */
+    --bg-primary: #0a0a0c;
+    --bg-secondary: #0b0a0f;
+    --surface: #111114;
+    --border: rgba(255, 255, 255, 0.08);
+    --border-hover: rgba(255, 255, 255, 0.15);
+
+    /* Brand Colors */
+    --brand-primary: #7c3aed;
+    --brand-secondary: #9333ea;
+    --brand-light: #c4b5fd;
+    --accent-cyan: #22d3ee;
+    --accent-purple: #a855f7;
+
+    /* Text Colors */
+    --text-primary: #f9fafb;
+    --text-secondary: #e5e7eb;
+    --text-muted: #9ca3af;
+    --text-dim: #6b7280;
+
+    /* Grid & Effects */
+    --grid-color: rgba(147, 51, 234, 0.05);
+    --grid-size: 80px;
+    --glow-purple: rgba(124, 58, 237, 0.3);
+  }
+
+  body {
+    @apply antialiased;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
+  }
+
+  * {
+    @apply border-border;
+  }
+}
+
+/* =========================
+   BACKGROUNDS & EFFECTS
+   ========================= */
+@layer components {
+  .grid-background {
+    background-image:
+      linear-gradient(var(--grid-color) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: var(--grid-size) var(--grid-size);
+    position: relative;
+  }
+
+  .grid-background-subtle {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .gradient-text-primary {
+    background: linear-gradient(135deg, #ffffff 0%, #c4b5fd 50%, #a855f7 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% auto;
+  }
+
+  .gradient-text-brand {
+    background: linear-gradient(135deg, var(--brand-primary), var(--accent-cyan));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* =========================
+     CARDS & SURFACES
+     ========================= */
+  .card-surface {
+    @apply bg-[var(--surface)]
+      border border-[var(--border)]
+      rounded-xl
+      shadow-xl shadow-black/40
+      backdrop-blur-sm;
+  }
+
+  .card {
+    @apply rounded-xl 
+      border border-white/10 
+      bg-white/[0.02]
+      backdrop-blur-sm;
+  }
+
+  .card-hover {
+    @apply card 
+      transition-all duration-300 
+      hover:border-white/20
+      hover:shadow-lg hover:shadow-purple-500/10
+      hover:bg-white/[0.04];
+  }
+
+  .card-glow {
+    @apply card-surface
+      transition-all duration-300
+      hover:shadow-2xl hover:shadow-purple-500/20
+      hover:border-purple-500/30;
+  }
+
+  .principle-card {
+    @apply card-surface 
+      p-6 
+      flex gap-4
+      transition-all duration-300
+      hover:border-purple-500/20;
+  }
+
+  .metric-card {
+    @apply card-surface 
+      p-6 
+      text-center
+      transition-all duration-300
+      hover:border-cyan-500/20;
+  }
+
+  .metric-value {
+    @apply text-3xl font-bold tracking-tight;
+    background: linear-gradient(135deg, #ffffff, #c4b5fd);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .metric-label {
+    @apply text-xs 
+      uppercase 
+      tracking-widest 
+      text-gray-500
+      font-semibold;
+  }
+
+  /* =========================
+     NAVIGATION
+     ========================= */
+  .nav-glass {
+    @apply bg-black/40 
+      border-b border-white/5 
+      backdrop-blur-xl
+      supports-[backdrop-filter]:bg-black/30;
+  }
+
+  /* =========================
+     BUTTONS
+     ========================= */
+  .btn-primary {
+    @apply px-6 py-3 
+      rounded-lg 
+      font-semibold
+      bg-white text-black
+      hover:bg-gray-100
+      transition-all duration-200
+      flex items-center gap-2
+      shadow-lg shadow-white/10
+      hover:shadow-xl hover:shadow-white/20
+      active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 
+      rounded-lg 
+      font-semibold
+      bg-purple-600 text-white
+      hover:bg-purple-500
+      transition-all duration-200
+      flex items-center gap-2
+      shadow-lg shadow-purple-500/20
+      hover:shadow-xl hover:shadow-purple-500/30
+      active:scale-95;
+  }
+
+  .btn-outline {
+    @apply px-6 py-3 
+      rounded-lg 
+      font-semibold
+      border-2 border-white/20
+      text-white
+      hover:border-white/40
+      hover:bg-white/5
+      transition-all duration-200
+      flex items-center gap-2
+      active:scale-95;
+  }
+
+  .btn-ghost {
+    @apply px-6 py-3 
+      rounded-lg 
+      font-semibold
+      text-white/80
+      hover:text-white
+      hover:bg-white/5
+      transition-all duration-200
+      flex items-center gap-2;
+  }
+
+  /* =========================
+     INPUTS & FORMS
+     ========================= */
+  .input-primary {
+    @apply px-5 py-3 
+      rounded-lg
+      bg-black/40 
+      border border-white/15
+      text-white 
+      placeholder-gray-500
+      focus:border-purple-500/50 
+      focus:outline-none
+      focus:ring-2 focus:ring-purple-500/20
+      transition-all duration-200
+      backdrop-blur-sm;
+  }
+
+  .input-glow {
+    @apply input-primary
+      focus:shadow-lg focus:shadow-purple-500/10;
+  }
+
+  /* =========================
+     SPACING & LAYOUT
+     ========================= */
+  .section-spacing {
+    @apply py-24 lg:py-28;
+  }
+
+  .container-narrow {
+    @apply max-w-4xl mx-auto px-6;
+  }
+
+  .container-wide {
+    @apply max-w-7xl mx-auto px-6;
+  }
+
+  /* =========================
+     ANIMATIONS & EFFECTS
+     ========================= */
+  .glow-purple {
+    box-shadow: 
+      0 0 20px rgba(124, 58, 237, 0.3),
+      0 0 40px rgba(124, 58, 237, 0.1);
+  }
+
+  .glow-cyan {
+    box-shadow: 
+      0 0 20px rgba(34, 211, 238, 0.3),
+      0 0 40px rgba(34, 211, 238, 0.1);
+  }
+
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  .fade-in {
+    animation: fadeIn 0.5s ease-in;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* =========================
+     UTILITY CLASSES
+     ========================= */
+  .text-gradient-purple {
+    @apply bg-gradient-to-r from-purple-400 to-purple-600 
+      bg-clip-text text-transparent;
+  }
+
+  .text-gradient-cyan {
+    @apply bg-gradient-to-r from-cyan-400 to-cyan-600 
+      bg-clip-text text-transparent;
+  }
+
+  .border-gradient {
+    border-image: linear-gradient(135deg, #7c3aed, #22d3ee) 1;
+  }
+
+  .glass {
+    @apply bg-white/5 
+      backdrop-blur-xl 
+      border border-white/10;
+  }
+
+  .glass-dark {
+    @apply bg-black/20 
+      backdrop-blur-xl 
+      border border-white/5;
+  }
+}
+
+/* =========================
+   RESPONSIVE TWEAKS
+   ========================= */
+@layer utilities {
+  @media (max-width: 640px) {
+    .section-spacing {
+      @apply py-16;
+    }
+  }
+}
