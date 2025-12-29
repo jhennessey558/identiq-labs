@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { ArrowRight, Mail, Sparkles, CheckCircle, Cpu, Network, Shield, Briefcase, Activity, Database } from 'lucide-react'
+import { ArrowRight, Mail, Sparkles, CheckCircle, Cpu, Network, Shield, Briefcase, Activity, Database, FileText, Download } from 'lucide-react'
 
 type MousePosition = { x: number; y: number }
 
@@ -95,6 +95,13 @@ const IdentiqLabs = () => {
 
             </div>
             <span className="text-xl font-bold nav-logo">Identiq Labs</span>
+          </div>
+          
+          <div className="flex items-center gap-6">
+            <a href="/whitepaper" className="nav-link text-sm flex items-center gap-2">
+              <FileText className="w-4 h-4" />
+              White Paper
+            </a>
           </div>
         </div>
       </nav>
@@ -193,7 +200,7 @@ We built it.
           <p className="text-gray-300 max-w-2xl mx-auto mb-8">
             Prism automatically discovers, links, and verifies your entire digital
             identity across platforms — so creators can prove real reach, and
-            sponsors can trust what they’re seeing.
+            sponsors can trust what they're seeing.
           </p>
 
           <div className="grid sm:grid-cols-3 gap-6 text-left text-sm">
@@ -356,6 +363,76 @@ We built it.
             </div>
 
           </div>
+
+          {/* WHITE PAPER CTA SECTION - NEW! */}
+          <section className="relative px-6 py-24 md:py-32 overflow-hidden">
+            {/* Background effects */}
+            <div className="absolute inset-0 grid-cyber opacity-10" />
+            
+            <div className="relative max-w-6xl mx-auto">
+              <div className="card-glow p-12 md:p-16 text-center">
+                
+                {/* Badge */}
+                <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-purple-500/10 border border-purple-500/20">
+                  <FileText className="w-4 h-4 text-purple-400" />
+                  <span className="text-sm text-purple-300 font-semibold">Technical White Paper</span>
+                </div>
+
+                {/* Main heading */}
+                <h2 className="text-4xl md:text-6xl font-black mb-6 text-glow" style={{
+                  background: 'linear-gradient(135deg, #ffffff 0%, #a855f7 50%, #06b6d4 100%)',
+                  WebkitBackgroundClip: 'text',
+                  backgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  letterSpacing: '-0.02em'
+                }}>
+                  The Missing Layer of the OSI Model
+                </h2>
+
+                {/* Description */}
+                <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed">
+                  Read our complete white paper on building permanent infrastructure for digital civilization. 
+                  From mathematical foundations to civilization-scale impact.
+                </p>
+
+                {/* CTA buttons */}
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                  <a 
+                    href="/whitepaper"
+                    className="btn-primary inline-flex items-center gap-2"
+                  >
+                    Read White Paper
+                    <FileText className="w-5 h-5" />
+                  </a>
+
+                  <a 
+                    href="/PRISM_White_Paper_Final.pdf"
+                    download
+                    className="btn-secondary inline-flex items-center gap-2"
+                  >
+                    Download PDF
+                    <Download className="w-5 h-5" />
+                  </a>
+                </div>
+
+                {/* Bottom stats */}
+                <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 text-sm text-gray-400">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-purple-400 animate-pulse-glow" />
+                    <span>15 minute read</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse-glow" />
+                    <span>Technical + Executive Summary</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-pink-400 animate-pulse-glow" />
+                    <span>December 2025</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
 
           {/* Bottom CTA */}
           <div className="text-center mt-20">

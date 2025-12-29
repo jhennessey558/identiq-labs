@@ -1,12 +1,17 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import IdentiqLabs from "./identiq-labs";
-import "./identiq-styles.css"
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import IdentiqLabs from './identiq-labs'
+import WhitepaperPage from './whitepaper-page'
+import './identiq-styles.css'
 
-
-
-ReactDOM.createRoot(document.getElementById("root")!).render(
+ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <IdentiqLabs />
-  </React.StrictMode>
-);
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<IdentiqLabs />} />
+        <Route path="/whitepaper" element={<WhitepaperPage />} />
+      </Routes>
+    </BrowserRouter>
+  </React.StrictMode>,
+)

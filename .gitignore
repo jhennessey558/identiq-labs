@@ -37,3 +37,4 @@ dist-ssr
 # Build outputs
 build
 .cache
+.vercel
